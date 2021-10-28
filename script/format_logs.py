@@ -39,7 +39,7 @@ def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = N
             _format_log(src_file, tgt_dir)
     
     else:
-        raise Exception("src_file and src_dir are specified at the same time")
+        raise Exception("'src_file' and 'src_dir' are specified at the same time")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
