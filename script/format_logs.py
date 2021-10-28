@@ -1,11 +1,9 @@
-import csv
 import argparse
-from datetime import datetime
-from os import write
-from typing import Union
+import csv
 import os.path as path
+from datetime import datetime
 from glob import iglob
-import numpy as np
+from typing import Union
 
 ROOT_DIR = path.dirname(__file__) + "/../"
 
