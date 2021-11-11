@@ -10,8 +10,10 @@ ROOT_DIR = path.dirname(__file__) + "/../"
 def _format_log(src_file: str, tgt_dir: str) -> None:
     with open(src_file) as f:
         reader = csv.reader(f)
-        next(reader)    # skip first row
-        log_date = datetime.strptime(reader.__next__()[0], "%Y-%m-%d %H:%M:%S.%f").date()    # get date from second row
+        next(reader)
+        log_date = datetime.strptime(next(reader)[0], "%Y-%m-%d %H:%M:%S.%f").date()    # get date from second row
+        f.seek(0)
+        next(reader)
 
         with open(tgt_dir + str(log_date) + ".csv", mode="a") as g:
             writer = csv.writer(g)
@@ -42,8 +44,8 @@ def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = N
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--src_file", help="specify source file", metavar="PATH_TO_SRC_FILE")
-    parser.add_argument("--src_dir", help="specify source dir", metavar="PATH_TO_SRC_DIR")
-    parser.add_argument("--tgt_dir", help="specify source dir", metavar="PATH_TO_SRC_DIR")
+    parser.add_argument("--src_dir", help="specify source directory", metavar="PATH_TO_SRC_DIR")
+    parser.add_argument("--tgt_dir", help="specify source directory", metavar="PATH_TO_SRC_DIR")
     args = parser.parse_args()
     
     format_logs(args.src_file, args.src_dir, args.tgt_dir)
