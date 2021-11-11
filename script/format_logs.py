@@ -20,7 +20,7 @@ def _format_log(src_file: str, tgt_dir: str) -> None:
             for row in reader:
                 writer.writerow((row[0], row[1], row[2][:-4]))
 
-    print(f"{path.basename(src_file)} was loaded")
+    print(f"{path.basename(src_file)} has been loaded")
     print(f"written to {log_date}.csv")
 
 def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = None, tgt_dir: Union[str, None] = None) -> None:
