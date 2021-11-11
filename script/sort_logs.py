@@ -20,13 +20,13 @@ def _sort_log(file: str) -> None:
             mac = np.hstack((mac, row[1]))
             rssi = np.hstack((rssi, np.int8(row[2])))
 
-    sorted_index_list = ts.argsort()
+    sorted_indexes = ts.argsort()
 
     with open(file, "w") as f:
         writer = csv.writer(f)
         is_sorted = False
         last = 0
-        for i in sorted_index_list:
+        for i in sorted_indexes:
             if i < last:
                 is_sorted = True
             writer.writerow((ts[i], mac[i], rssi[i]))
