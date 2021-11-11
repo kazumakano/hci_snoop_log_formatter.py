@@ -31,13 +31,13 @@ def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = N
         for src_file in iglob(ROOT_DIR + "raw/*.csv"):    # loop for default source directory
             _format_log(src_file, tgt_dir)
 
-    elif src_file is not None:
-        _format_log(src_file, tgt_dir)
-
-    elif src_dir is not None:
+    elif src_file is None:
         for src_file in iglob(src_dir):    # loop for specified source directory
             _format_log(src_file, tgt_dir)
-    
+
+    elif src_dir is None:
+        _format_log(src_file, tgt_dir)
+
     else:
         raise Exception("'src_file' and 'src_dir' are specified at the same time")
 
