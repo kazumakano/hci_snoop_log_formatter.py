@@ -1,4 +1,4 @@
-# log_formatter.py
+# hci_snoop_log_formatter.py
 This is Python module to convert logs format from CSV exported by Wireshark to CSV able to be interpreted by [particle_filter.py](https://github.com/kazumakano/particle_filter.py).
 
 ## Usage
