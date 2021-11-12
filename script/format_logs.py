@@ -45,7 +45,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--src_file", help="specify source file", metavar="PATH_TO_SRC_FILE")
     parser.add_argument("--src_dir", help="specify source directory", metavar="PATH_TO_SRC_DIR")
-    parser.add_argument("--tgt_dir", help="specify source directory", metavar="PATH_TO_SRC_DIR")
+    parser.add_argument("--tgt_dir", help="specify target directory", metavar="PATH_TO_TGT_DIR")
     args = parser.parse_args()
     
     format_logs(args.src_file, args.src_dir, args.tgt_dir)
