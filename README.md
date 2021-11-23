@@ -11,7 +11,7 @@ python script/format_logs.py [--src_file PATH_TO_SRC_FILE] [--src_dir PATH_TO_SR
 ```
 
 ### sort_logs.py
-You may need to run sorter after formatting logs if there are multiple log files which are logged on same date.
+You may need to sort logs after formatting them if there are multiple log files which are logged on same date.
 
 You can run sorter as following.
 You can specify file or directory with flags.
