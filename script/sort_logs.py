@@ -27,9 +27,10 @@ def _sort_log(file: str) -> None:
         is_sorted = False
         last = 0
         for i in sorted_indexes:
+            writer.writerow((ts[i], mac[i], rssi[i]))
             if i < last:
                 is_sorted = True
-            writer.writerow((ts[i], mac[i], rssi[i]))
+
             last = i
 
     if is_sorted:
