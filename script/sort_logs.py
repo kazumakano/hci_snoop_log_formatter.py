@@ -1,4 +1,3 @@
-import argparse
 import csv
 import os.path as path
 from datetime import datetime
@@ -54,6 +53,8 @@ def sort_logs(file: Union[str, None] = None, dir: Union[str, None] = None) -> No
         raise Exception("'file' and 'dir' are specified at the same time")
 
 if __name__ == "__main__":
+    import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--file", help="specify file", metavar="PATH_TO_FILE")
     parser.add_argument("-d", "--dir", help="specify directory", metavar="PATH_TO_DIR")

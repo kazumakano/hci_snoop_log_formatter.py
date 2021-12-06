@@ -1,4 +1,3 @@
-import argparse
 import csv
 import os.path as path
 from datetime import datetime
@@ -42,6 +41,8 @@ def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = N
         raise Exception("'src_file' and 'src_dir' are specified at the same time")
 
 if __name__ == "__main__":
+    import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--src_file", help="specify source file", metavar="PATH_TO_SRC_FILE")
     parser.add_argument("--src_dir", help="specify source directory", metavar="PATH_TO_SRC_DIR")
