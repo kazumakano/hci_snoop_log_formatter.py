@@ -24,7 +24,6 @@ def _sort_log(file: str) -> None:
     with open(file, "w") as f:
         writer = csv.writer(f)
         for i in sorted_indexes:
-            i: int
             writer.writerow((ts[i], mac[i], rssi[i]))
 
     print(f"{path.basename(file)} has been sorted")
