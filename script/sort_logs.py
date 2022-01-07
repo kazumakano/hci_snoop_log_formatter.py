@@ -19,23 +19,15 @@ def _sort_log(file: str) -> None:
             mac = np.hstack((mac, row[1]))
             rssi = np.hstack((rssi, np.int8(row[2])))
 
-    sorted_indexes = ts.argsort()
+    sorted_indexes: np.ndarray = ts.argsort()
 
     with open(file, "w") as f:
         writer = csv.writer(f)
-        is_sorted = False
-        last = 0
         for i in sorted_indexes:
+            i: int
             writer.writerow((ts[i], mac[i], rssi[i]))
-            if i < last:
-                is_sorted = True
 
-            last = i
-
-    if is_sorted:
-        print(f"{path.basename(file)} has been sorted")
-    else:
-        print(f"{path.basename(file)} is already in order")
+    print(f"{path.basename(file)} has been sorted")
 
 def sort_logs(file: Union[str, None] = None, dir: Union[str, None] = None) -> None:
     if file is None and dir is None:
