@@ -13,7 +13,7 @@ def _format_log(src_file: str, tgt_dir: str) -> None:
         row = next(reader)
         log_date = datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S.%f").date()    # get date from second row
 
-        with open(path.join(tgt_dir, str(log_date) + "_" + ".csv"), mode="a") as g:
+        with open(path.join(tgt_dir, str(log_date) + "_.csv"), mode="a") as g:
             writer = csv.writer(g)
             writer.writerow((row[0], row[1], row[2][:-4]))
             for row in reader:
