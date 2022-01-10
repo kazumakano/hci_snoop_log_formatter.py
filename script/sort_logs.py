@@ -5,7 +5,6 @@ from glob import iglob
 from typing import Union
 import numpy as np
 
-ROOT_DIR = path.join(path.dirname(__file__), "../")
 
 def _sort_log(file: str) -> None:
     ts = np.empty(0, dtype=datetime)     # timestamp
@@ -30,7 +29,7 @@ def _sort_log(file: str) -> None:
 
 def sort_logs(file: Union[str, None] = None, dir: Union[str, None] = None) -> None:
     if file is None and dir is None:
-        for file in iglob(path.join(ROOT_DIR, "formatted/*.csv")):    # loop for default directory
+        for file in iglob(path.join(path.dirname(__file__), "../formatted/*.csv")):    # loop for default directory
             _sort_log(file)
 
     elif file is None:

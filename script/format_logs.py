@@ -4,7 +4,6 @@ from datetime import datetime
 from glob import iglob
 from typing import Union
 
-ROOT_DIR = path.join(path.dirname(__file__), "../")
 
 def _format_log(src_file: str, tgt_dir: str) -> None:
     with open(src_file) as f:
@@ -24,10 +23,10 @@ def _format_log(src_file: str, tgt_dir: str) -> None:
 
 def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = None, tgt_dir: Union[str, None] = None) -> None:
     if tgt_dir is None:
-        tgt_dir = path.join(ROOT_DIR, "formatted/")    # save to default target directory
+        tgt_dir = path.join(path.dirname(__file__), "../formatted/")    # save to default target directory
 
     if src_file is None and src_dir is None:
-        for src_file in iglob(path.join(ROOT_DIR, "raw/*.csv")):    # loop for default source directory
+        for src_file in iglob(path.join(path.dirname(__file__), "../raw/*.csv")):    # loop for default source directory
             _format_log(src_file, tgt_dir)
 
     elif src_file is None:
