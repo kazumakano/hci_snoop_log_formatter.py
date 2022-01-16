@@ -20,7 +20,7 @@ def _sort_log(file: str) -> None:
 
     sorted_indexes: np.ndarray = ts.argsort()
 
-    with open(file, "w") as f:
+    with open(file, mode="w") as f:
         writer = csv.writer(f)
         for i in sorted_indexes:
             writer.writerow((ts[i], mac[i], rssi[i]))
