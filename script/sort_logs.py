@@ -12,8 +12,7 @@ def _sort_log(file: str) -> None:
     rssi = np.empty(0, dtype=np.int8)    # RSSI (>= -128)
 
     with open(file) as f:
-        reader = csv.reader(f)
-        for row in reader:
+        for row in csv.reader(f):
             ts = np.hstack((ts, datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S.%f")))
             mac = np.hstack((mac, row[1]))
             rssi = np.hstack((rssi, np.int8(row[2])))
