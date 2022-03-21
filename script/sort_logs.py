@@ -2,7 +2,7 @@ import csv
 import os.path as path
 from datetime import datetime
 from glob import iglob
-from typing import Union
+from typing import Optional
 import numpy as np
 
 
@@ -26,7 +26,7 @@ def _sort_log(file: str) -> None:
 
     print(f"{path.basename(file)} has been sorted")
 
-def sort_logs(file: Union[str, None] = None, dir: Union[str, None] = None) -> None:
+def sort_logs(file: Optional[str] = None, dir: Optional[str] = None) -> None:
     if file is None and dir is None:
         for file in iglob(path.join(path.dirname(__file__), "../formatted/*.csv")):    # loop for default directory
             _sort_log(file)

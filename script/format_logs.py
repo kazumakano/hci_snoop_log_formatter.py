@@ -2,7 +2,7 @@ import csv
 import os.path as path
 from datetime import datetime
 from glob import iglob
-from typing import Union
+from typing import Optional
 
 
 def _format_log(src_file: str, tgt_dir: str) -> None:
@@ -21,7 +21,7 @@ def _format_log(src_file: str, tgt_dir: str) -> None:
     print(f"{path.basename(src_file)} has been loaded")
     print(f"written to {log_date}.csv")
 
-def format_logs(src_file: Union[str, None] = None, src_dir: Union[str, None] = None, tgt_dir: Union[str, None] = None) -> None:
+def format_logs(src_file: Optional[str] = None, src_dir: Optional[str] = None, tgt_dir: Optional[str] = None) -> None:
     if tgt_dir is None:
         tgt_dir = path.join(path.dirname(__file__), "../formatted/")    # save to default target directory
 
